@@ -8,11 +8,18 @@ import { Customer } from '../models/customer';
   providedIn: 'root'
 })
 export class CustomerService {
+  //property
   private apiUrl = `${environment.apiUrl}/customer`
   
+  //constructor
   constructor(private http: HttpClient) { }
 
+  //observable
   getCustomers(): Observable<Customer[]>{
     return this.http.get<Customer[]>(this.apiUrl);
+  }
+
+  createCustomer(customer: Customer): Observable<Customer>{
+    return this.http.post<Customer>(this.apiUrl, customer)
   }
 }

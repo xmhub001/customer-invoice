@@ -1,3 +1,10 @@
 import { Routes } from '@angular/router';
+import { CustomerTableComponent } from './customer-table/customer-table.component';
+import { CustomerFormComponent } from './customer-form/customer-form.component';
 
-export const routes: Routes = [];
+//paths: '', 'create'
+export const routes: Routes = [
+    {path: '', component: CustomerTableComponent},
+    {path: 'create', component:CustomerFormComponent},
+    {path: 'customers', redirectTo: '', pathMatch:'full'}
+];
