@@ -1,6 +1,10 @@
 <!--<div>customer-form works!</div>-->
 <h2>Create Customer</h2>
 
+<div *ngIf="errorMessage != ''">
+    {{errorMessage}}
+</div>
+
 <form (ngSubmit)="onSubmit()">
 
     <div>

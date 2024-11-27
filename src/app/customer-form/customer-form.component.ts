@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Customer } from '../../models/customer';
 import { CustomerService } from '../customer.service';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'customer-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './customer-form.component.html',
   styleUrl: './customer-form.component.css'
 })
@@ -24,7 +26,9 @@ export class CustomerFormComponent {
     customerPostalCode: ''
   }
 
-  constructor(private customerService: CustomerService){}
+  errorMessage: string = "";
+
+  constructor(private customerService: CustomerService, private router: Router){}
 
   //submit method
   onSubmit(): void {
@@ -32,7 +36,17 @@ export class CustomerFormComponent {
     //logic to create new customer
     //use di customerService and subscribe
     this.customerService.createCustomer(this.customer)
-      .subscribe((result) => console.log(result))
+      .subscribe({
+        next: (response) => {
+          this.router.navigate(["/"])
+        },
+        error: (err) => {
+          console.log(err);
+          this.errorMessage = `Error ocurred: ${err.status}`; // - ${err.message}
+        }
+      });
+        
+        //(result) => console.log(result))
   }
   
   //example onClick method
