@@ -24,6 +24,7 @@ export class CustomerService {
   }
 
   deleteCustomer(id: number): Observable<void>{
+    //this delete matches the API delete attribute signature (takes /id)
     return this.http.delete<void>(`${this.apiUrl}/${id}`)
   }
 }

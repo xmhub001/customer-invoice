@@ -23,4 +23,17 @@ export class CustomerTableComponent {
       console.log(data);
     });
   }
+
+  deleteCustomer(id: number): void{
+    this.customerService.deleteCustomer(id).subscribe({
+      next: () => {
+        //response
+        //filter for the one we want to delete
+        this.customers = this.customers.filter(c => c.id !== id);
+      },
+      error: (err) => {
+        console.error('Error deleting customer', err);
+      }
+    })
+  }
 }
