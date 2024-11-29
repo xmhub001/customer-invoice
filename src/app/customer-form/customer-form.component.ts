@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Customer } from '../../models/customer';
 import { CustomerService } from '../customer.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './customer-form.component.html',
   styleUrl: './customer-form.component.css'
 })
-export class CustomerFormComponent {
+export class CustomerFormComponent implements OnInit{
   //interface with two-way data binding
   customer: Customer = {
     id: 0,
@@ -28,8 +28,17 @@ export class CustomerFormComponent {
 
   errorMessage: string = "";
 
-  constructor(private customerService: CustomerService, private router: Router){}
+  constructor(
+    private customerService: CustomerService, 
+    private router: Router,
+    private route: ActivatedRoute
+  ){}
 
+  //OnInit
+  ngOnInit(): void {
+    //Edit Intermediate step to make sure everything is working correctly
+    this.route.paramMap.subscribe((result) => console.log(result));
+  }
   //submit method
   onSubmit(): void {
     console.log(this.customer)
