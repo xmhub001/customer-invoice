@@ -19,6 +19,18 @@ export class CustomerService {
     return this.http.get<Customer[]>(this.apiUrl);
   }
 
+  //for Edit to populate form
+  getCustomerById(id:number): Observable<Customer>{
+    return this.http.get<Customer>(`${this.apiUrl}/${id}`);
+  }
+
+  //for Edit by Id
+  editCustomerById(customer: Customer): Observable<Customer>{
+    return this.http.put<Customer>(`${this.apiUrl}/${customer.id}`, customer);
+  }
+  
+
+
   createCustomer(customer: Customer): Observable<Customer>{
     return this.http.post<Customer>(this.apiUrl, customer)
   }

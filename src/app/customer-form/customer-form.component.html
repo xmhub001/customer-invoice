@@ -1,5 +1,5 @@
 <!--<div>customer-form works!</div>-->
-<h2>Create Customer</h2>
+<h2>{{isEditing? 'Edit' : 'Create'}} Customer</h2>
 
 <div *ngIf="errorMessage != ''">
     {{errorMessage}}
@@ -39,6 +39,6 @@
         <label>Customer Postal Code</label>
         <input type="text" name="customerPostalCode" [(ngModel)]="customer.customerPostalCode" />
     </div>
-    <button type="submit">Create</button>
+    <button type="submit">{{isEditing? 'Edit' : 'Create'}}</button>
     <!--<button type="submit" (click)="onClick()">Create2</button>-->
 </form>
