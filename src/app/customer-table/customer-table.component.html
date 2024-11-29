@@ -1,36 +1,47 @@
 <!--<p>customer-table works!</p>-->
-<h2>Customer</h2>
+<h2 class="text-center my-5">Customers</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Customer Name</th>
-            <th>Customer Address</th>
-            <th>Customer Email</th>
-            <th>Customer Phone</th>
-            <th>Customer City</th>
-            <th>Customer State</th>
-            <th>Customer Region</th>
-            <th>Customer Postal Code</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let customer of customers" >
-            <td>{{customer.id}}</td>
-            <td>{{customer.customerName}}</td>
-            <td>{{customer.customerAddress}}</td>
-            <td>{{customer.customerEmail}}</td>
-            <td>{{customer.customerPhone}}</td>
-            <td>{{customer.customerCity}}</td>
-            <td>{{customer.customerState}}</td>
-            <td>{{customer.customerRegion}}</td>
-            <td>{{customer.customerPostalCode}}</td>
-            <td>
-                <button (click)="deleteCustomer(customer.id)">Delete</button>
-                <button (click)="editCustomer(customer.id)">Edit</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="card">
+
+    <div class="card-header">
+        <!-- <h4>Overview</h4> -->
+         <p class="fs-5">Overview</p>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Customer Name</th>
+                    <th>Customer Address</th>
+                    <th>Customer Email</th>
+                    <th>Customer Phone</th>
+                    <th>Customer City</th>
+                    <th>Customer State</th>
+                    <th>Customer Region</th>
+                    <th>Customer Postal Code</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of customers" >
+                    <td>{{customer.id}}</td>
+                    <td>{{customer.customerName}}</td>
+                    <td>{{customer.customerAddress}}</td>
+                    <td>{{customer.customerEmail}}</td>
+                    <td>{{customer.customerPhone}}</td>
+                    <td>{{customer.customerCity}}</td>
+                    <td>{{customer.customerState}}</td>
+                    <td>{{customer.customerRegion}}</td>
+                    <td>{{customer.customerPostalCode}}</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm m-2" (click)="editCustomer(customer.id)">Edit</button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteCustomer(customer.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- <button class="btn btn-primary">Test</button> -->

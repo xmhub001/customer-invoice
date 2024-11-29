@@ -1,44 +1,44 @@
 <!--<div>customer-form works!</div>-->
-<h2>{{isEditing? 'Edit' : 'Create'}} Customer</h2>
+<h2 class="text-center my-5">{{isEditing? 'Edit' : 'Create'}} Customer</h2>
 
 <div *ngIf="errorMessage != ''">
     {{errorMessage}}
 </div>
 
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" class="border rounded p-5 w-50 mb-10 mx-auto">
 
-    <div>
-        <label>Customer Name</label>
-        <input type="text" name="customerName" [(ngModel)]="customer.customerName" />
+    <div class="mb-3">
+        <label class="form-label">Customer Name</label>
+        <input class="form-control" type="text" name="customerName" [(ngModel)]="customer.customerName" />
     </div>
-    <div>
-        <label>Customer Address</label>
-        <input type="text" name="customerAddress" [(ngModel)]="customer.customerAddress" />
+    <div class="mb-3">
+        <label class="form-label">Customer Address</label>
+        <input class="form-control" type="text" name="customerAddress" [(ngModel)]="customer.customerAddress" />
     </div>
-    <div>
-        <label>Customer Email</label>
-        <input type="email" name="customerEmail" [(ngModel)]="customer.customerEmail" />
+    <div class="mb-3">
+        <label class="form-label">Customer Email</label>
+        <input class="form-control" type="email" name="customerEmail" [(ngModel)]="customer.customerEmail" />
     </div>
-    <div>
-        <label>Customer Phone</label>
-        <input type="phone" name="customerPhone" [(ngModel)]="customer.customerPhone" />
+    <div class="mb-3">
+        <label class="form-label">Customer Phone</label>
+        <input class="form-control" type="phone" name="customerPhone" [(ngModel)]="customer.customerPhone" />
     </div>
-    <div>
-        <label>Customer City</label>
-        <input type="text" name="customerCity" [(ngModel)]="customer.customerCity" />
+    <div class="mb-3">
+        <label class="form-label">Customer City</label>
+        <input class="form-control" type="text" name="customerCity" [(ngModel)]="customer.customerCity" />
     </div>
-    <div>
-        <label>Customer State</label>
-        <input type="text" name="customerState" [(ngModel)]="customer.customerState" />
+    <div class="mb-3">
+        <label class="form-label">Customer State</label>
+        <input class="form-control" type="text" name="customerState" [(ngModel)]="customer.customerState" />
     </div>
-    <div>
-        <label>Customer Region</label>
-        <input type="text" name="customerRegion" [(ngModel)]="customer.customerRegion" />
+    <div class="mb-3">
+        <label class="form-label">Customer Region</label>
+        <input class="form-control" type="text" name="customerRegion" [(ngModel)]="customer.customerRegion" />
     </div>
-    <div>
-        <label>Customer Postal Code</label>
-        <input type="text" name="customerPostalCode" [(ngModel)]="customer.customerPostalCode" />
+    <div class="mb-3">
+        <label class="form-label">Customer Postal Code</label>
+        <input class="form-control" type="text" name="customerPostalCode" [(ngModel)]="customer.customerPostalCode" />
     </div>
-    <button type="submit">{{isEditing? 'Edit' : 'Create'}}</button>
+    <button class="btn btn-primary" type="submit">{{isEditing? 'Edit' : 'Create'}}</button>
     <!--<button type="submit" (click)="onClick()">Create2</button>-->
 </form>
